@@ -35,6 +35,7 @@ public class PriorityQueue<T extends Comparable<T>> {
         return maxHeap.remove();
     }
 
+    //测试
     public static void main(String[] args) {
         PriorityQueue<Integer> queue = new PriorityQueue<>();
         Random random = new Random();
