@@ -107,7 +107,7 @@ public class BinaryTree<K extends Comparable<K>,V> {
     public List<V> inOrder() {
         List<V> valueList = new LinkedList<>();
         List<Node> nodeList = new LinkedList<>();
-        inOrder(root, nodeList);
+        inOrder2(root, nodeList);
         for(Node node : nodeList) {
             valueList.add(node.value);
         }
@@ -123,11 +123,30 @@ public class BinaryTree<K extends Comparable<K>,V> {
     }
     //非递归方式实现中序遍历
     private void inOrder2(Node node,List<Node> nodeList) {
-
+        Stack<Node> stack = new Stack<>();
+        while(node != null || stack.size()!=0) {
+            if(node != null) {
+                stack.push(node);
+                node = node.left;
+            }else {
+                node = stack.pop();
+                nodeList.add(node);
+                node = node.right;
+            }
+        }
     }
 
     //后序遍历,将遍历的结点保存在List中
-    public void postOrder(Node node, List<Node> nodeList) {
+    public List<V> postOrder() {
+        List<V> valueList = new LinkedList<>();
+        List<Node> nodeList = new LinkedList<>();
+        postOrder2(root, nodeList);
+        for(Node node : nodeList) {
+            valueList.add(node.value);
+        }
+        return valueList;
+    }
+    private void postOrder(Node node, List<Node> nodeList) {
         if(node == null){
             return;
         }
@@ -135,14 +154,44 @@ public class BinaryTree<K extends Comparable<K>,V> {
         postOrder(node.right, nodeList);
         nodeList.add(node);
     }
+    //后序遍历的非递归实现
+    public void postOrder2(Node node, List<Node> nodeList) {
+        Stack<Node> stack = new Stack<>();
+        Node prev = root; //记录前面访问过的一个结点
+        while(node != null || stack.size()!=0) {
+            if(node != null) {
+                stack.push(node);
+                node = node.left;
+            }else {
+                node = stack.peek().right;
+                //没有右子树或之前访问过
+                if(node == null || node == prev) {
+                    node = stack.pop();
+                    nodeList.add(node);
+                    prev = node;
+                    node = null;
+                }
+            }
+        }
+    }
 
     //层序遍历,,将遍历的结点保存在List中
-    public void levelOrder(Node node, List<Node> nodeList) {
+    public List<V> levelOrder() {
+        List<V> valueList  = new LinkedList<>();
+        List<Node> nodeList = new LinkedList<>();
+        levelOrder(root, nodeList);
+        for(Node node : nodeList) {
+            valueList.add(node.value);
+        }
+        return valueList;
+    }
+    private void levelOrder(Node node, List<Node> nodeList) {
         Queue<Node> nodes = new ArrayDeque<>();
         while(node != null) {
             nodeList.add(node);
             if(node.left != null){
                 nodes.add(node.left);
+
             }
             if(node.right != null){
                 nodes.add(node.right);
@@ -317,7 +366,7 @@ public class BinaryTree<K extends Comparable<K>,V> {
             binaryTree.add(keys[i],random.nextInt(100));
         }
 
-        List<Integer> list = binaryTree.inOrder();
+        List<Integer> list = binaryTree.levelOrder();
         for(Integer i : list) {
             System.out.print(i+" ");
         }
