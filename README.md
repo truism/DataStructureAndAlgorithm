@@ -65,4 +65,8 @@
         <td>面试题集锦</td>
         <td><a href="#">面试题集锦</a></td>
     </tr>
+    <tr>
+        <td>计算机理论</td>
+        <td><a href="#">计算机理论</a></td>
+    </tr>
 </table>
