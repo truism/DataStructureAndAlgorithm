@@ -58,8 +58,8 @@
         <td><a href="https://github.com/liumingli2019/DataStructureAndAlgorithm/tree/master/DataStructure/src/stu/edu/Sort">排序算法</a></td>
     </tr>
     <tr>
-        <td>查找</td>
-        <td><a href="#">查找</a></td>
+        <td>查找算法</td>
+        <td><a href="#">查找算法</a></td>
     </tr>
     <tr>
         <td>面试题集锦</td>
