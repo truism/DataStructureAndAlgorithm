@@ -46,10 +46,6 @@
         <td><a href="#">红黑树</a></td>
     </tr>
     <tr>
-        <td>2-3树、B树、B+树</td>
-        <td><a href="#">2-3树、B树、B+树</a></td>
-    </tr>
-    <tr>
         <td>缓存置换算法</td>
         <td><a href="https://github.com/liumingli2019/DataStructureAndAlgorithm/tree/master/DataStructure/src/stu/edu/CacheAlgorithm">缓存置换算法</a></td>
     </tr>
@@ -64,9 +60,5 @@
     <tr>
         <td>面试题集锦</td>
         <td><a href="#">面试题集锦</a></td>
-    </tr>
-    <tr>
-        <td>计算机理论</td>
-        <td><a href="#">计算机理论</a></td>
     </tr>
 </table>
