@@ -13,7 +13,7 @@ public class MergeLinkedList {
     int[] nums1 = {0,1,3,5,7,9,11};
     int[] nums2 = {2,4,6,8,10};
 
-    Node result = mergeLinkedList(createListNode(nums1),createListNode(nums2));
+    Node result = mergeLinkedList2(createListNode(nums1),createListNode(nums2));
     System.out.println(result);
   }
 
@@ -28,6 +28,7 @@ public class MergeLinkedList {
       this.val = val;
     }
 
+    @Override
     public String toString() {
       StringBuilder sb = new StringBuilder();
       Node head = this;
@@ -95,11 +96,29 @@ public class MergeLinkedList {
       if(Objects.isNull(head2)) {
         return head1;
       }
-      Node dummy = head1.val < head2.val ? head1 : head2;
-      Node head = dummy;
 
-      
+      Node head = head1.val < head2.val ? head1 : head2;
 
+      Node prev = head;
+      Node cur1 = head.next;
+      Node cur2 = head == head1 ? head2 : head1;
+      Node next = cur2.next;
+
+      while (!Objects.isNull(cur1) && !Objects.isNull(cur2)) {
+        if(cur1.val < cur2.val) {
+          prev = cur1;
+          cur1 = cur1.next;
+        }else {
+          prev.next = cur2;
+          cur2.next = cur1;
+          prev = cur2;
+          cur2 = next;
+          if(cur2 != null) {
+            next = cur2.next;
+          }
+        }
+      }
+      prev.next = cur1 == null ? cur2 :cur1;
       return head;
     }
 }
