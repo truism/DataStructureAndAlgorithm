@@ -47,23 +47,6 @@ public class BinaryTree<K extends Comparable<K>,V> {
         return node.height;
     }
 
-//    //判断以node为根的树是否平衡
-//    //平衡因子为-1、0、1代表该树平衡
-//    public boolean isBalance(Node node) {
-//        int balanceFactor = getBalanceFactor(node);
-//        if(Math.abs(balanceFactor) > 1){
-//            return false;
-//        }
-//        return isBalance(node.left) && isBalance(node.right);
-//    }
-
-//    //获取node为根的树的平衡因子
-//    private int getBalanceFactor(Node node) {
-//        int l = getHeight(node.left);
-//        int r = getHeight(node.right);
-//        return l - r;
-//    }
-
     //先序遍历,将遍历的结点上的value保存在List中
     public List<V> preOrder() {
         List<Node> nodeList = new LinkedList<>();
