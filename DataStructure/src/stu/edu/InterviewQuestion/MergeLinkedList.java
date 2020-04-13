@@ -89,6 +89,17 @@ public class MergeLinkedList {
      * @return
      */
     public static Node mergeLinkedList2(Node head1, Node head2) {
-      return null;
+      if(Objects.isNull(head1)) {
+        return head2;
+      }
+      if(Objects.isNull(head2)) {
+        return head1;
+      }
+      Node dummy = head1.val < head2.val ? head1 : head2;
+      Node head = dummy;
+
+      
+
+      return head;
     }
 }
