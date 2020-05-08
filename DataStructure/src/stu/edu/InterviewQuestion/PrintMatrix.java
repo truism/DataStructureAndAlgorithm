@@ -34,6 +34,7 @@ public class PrintMatrix {
           list.add(matrix[r2][i]);
         }
         for (int i = r2; i > r1 ; i--) {
+          // 从下往上
           list.add(matrix[i][c1]);
         }
       }
