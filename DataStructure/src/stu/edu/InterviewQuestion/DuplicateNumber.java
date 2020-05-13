@@ -1,13 +1,14 @@
 package stu.edu.InterviewQuestion;
 
 /**
+ * 长度为n的数字内数字为 0 ~ n-1
  * 找到数组中第一个重复的元素
  * @author Admin
  */
 public class DuplicateNumber {
 
     public static void main(String[] args) {
-        int[] arr = new int[] {1,2,4,3,5,2,1,3};
+        int[] arr = new int[] {6,2,4,3,5,2,1,3};
         System.out.println(duplicateNUmber(arr));
     }
 
