@@ -43,7 +43,7 @@ public class LRU<K,V> {
             return value;
         }
         //缓存中不存在
-        if(cache.getSize() == capacity) { //缓存已满
+        if(cache.getSize().equals(capacity)) { //缓存已满
             cache.removeLast();  //删除最近最少使用的元素
             cache.addFirst(key, map.get(key));  //从内存或数据库查找存入缓存
         }else {  //缓存中不存在且缓存未满
